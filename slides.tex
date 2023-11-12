@@ -6,9 +6,19 @@
 % remove section slides
 \AtBeginSection[]
 {
-  \begin{frame}<beamer>
+  \begin{frame}[plain]
     \frametitle{Introduction to Deep Learning}
+	\footnotesize
     \tableofcontents[currentsection]
+  \end{frame}
+}
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{}
+\begin{center}    
+\Large{\subsecname}
+\end{center}
   \end{frame}
 }
 % includepdf slides, pagecommad will set counter for framenumber
@@ -22,10 +32,10 @@
      \colorbox{white}{
      \makebox[\dimexpr\paperwidth-2\fboxsep\relax]{
      \color{black}
-     \begin{minipage}[c][4.5ex][c]{0.5\linewidth}
-       \secname
+     \begin{minipage}[c][4.5ex][c]{0.7\linewidth}
+       \secname \, | \subsecname
      \end{minipage}
-     \hfill\begin{minipage}[c][4.5ex][c]{0.5\linewidth}
+     \hfill\begin{minipage}[c][4.5ex][c]{0.3\linewidth}
        \flushright
        \insertframenumber{}~/~\inserttotalframenumber~~
      \end{minipage}
@@ -43,33 +53,56 @@
 
 % General remark: hyperlinks in included pdfs are not clickable anymore in the combined pdf
 
-\frame{\titlepage}
 
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+\begin{frame}[plain]{Introduction to Deep Learning}
+\tableofcontents[sectionstyle=show/show, subsectionstyle=hide/hide]
+\end{frame}
 \section{Introduction \& MLPs}
+\subsection{Introduction}
 \includepdf[pages={2-7}]{../../summer24/lecture_i2dl/slides-pdf/topic1/slides-intro-introduction.pdf}
-\includepdf[pages={2-last}]{../../summer24/lecture_i2dl/slides-pdf/topic1/slides-mlps-single-neuron-.pdf}
-\includepdf[pages={2-last}]{../../summer24/lecture_i2dl/slides-pdf/topic1/slides-mlps-single-hidden-layer-networks.pdf}
+\subsection {A Single Neuron}
+\includepdf[pages={2-last}]{../../summer24/lecture_i2dl/slides-pdf/topic1/slides-mlps-single-neuron.pdf}
+\subsection{Single Hidden Layer Networks}
+\includepdf[pages={3-last}]{../../summer24/lecture_i2dl/slides-pdf/topic1/slides-mlps-single-hidden-layer-networks.pdf}
+\subsection{Multiclass Classification}
 \includepdf[pages={2-5, 14}]{../../summer24/lecture_i2dl/slides-pdf/topic1/slides-mlps-multiclass-classification.pdf}
+\subsection{Multilayer MLPs}
 \includepdf[pages={2-4, 17}]{../../summer24/lecture_i2dl/slides-pdf/topic1/slides-mlps-multilayer-FNNs.pdf}
+\subsection{Basic Training}
 \includepdf[pages={2-last}]{../../summer24/lecture_i2dl/slides-pdf/topic2/slides-opt1-basic-training.pdf}
 \section{Convolutional Neural Networks}
+\subsection{Introduction}
 \includepdf[pages={2-last}]{../../summer24/lecture_i2dl/slides-pdf/topic5/slides-cnn-introduction.pdf}
+\subsection{Conv2D}
 \includepdf[pages={2-16}]{../../summer24/lecture_i2dl/slides-pdf/topic5/slides-cnn-conv2d.pdf}
+\subsection{Properties of Convolutional Layers}
 \includepdf[pages={2-last}]{../../summer24/lecture_i2dl/slides-pdf/topic5/slides-cnn-properties-of-convolution.pdf}
+\subsection{Components of Convolution Layers}
 \includepdf[pages={4-10,13-15, 17-19}]{../../summer24/lecture_i2dl/slides-pdf/topic5/slides-cnn-components.pdf}
 \section{Recurrent Neural Networks}
-\includepdf[pages={2}]{../../summer24/lecture_i2dl/slides-pdf/topic7/slides-8-1-rnnintro.pdf}
-\includepdf[pages={7-8, 30-31}]{../../summer24/lecture_i2dl/slides-pdf/topic8/slides-8-4-applications.pdf}
-\includepdf[pages={3-16}]{../../summer24/lecture_i2dl/slides-pdf/topic7/slides-8-1-rnnintro.pdf}
-\includepdf[pages={3-13,15-21,23-24}]{../../summer24/lecture_i2dl/slides-pdf/topic7/slides-8-3-modernrnn.pdf}
-\includepdf[pages={22-25}]{../../summer24/lecture_i2dl/slides-pdf/topic8/slides-8-4-applications.pdf}
-\includepdf[pages={3-6,9-10}]{../../summer24/lecture_i2dl/slides-pdf/topic8/slides-8-5-attention.pdf}
-\section{Practical Considerations for Training NNets}
-\includepdf[pages={3-6}]{../../summer24/lecture_i2dl/slides-pdf/topic2/slides-opt1-hardware-and-software.pdf}
+\subsection{Introduction}
+\includepdf[pages={3}]{../../summer24/lecture_i2dl/slides-pdf/topic7/slides-introduction.pdf}
+\includepdf[pages={20-21,25-26}]{../../summer24/lecture_i2dl/slides-pdf/topic8/slides-applications.pdf}
+\includepdf[pages={4-9,11-17}]{../../summer24/lecture_i2dl/slides-pdf/topic7/slides-introduction.pdf}
+\subsection{Modern RNNs}
+\includepdf[pages={3-13,15-21,23-24}]{../../summer24/lecture_i2dl/slides-pdf/topic7/slides-modernrnn.pdf}
+\subsection{Encoder-Decoder Networks and Attention}
+\includepdf[pages={15-18}]{../../summer24/lecture_i2dl/slides-pdf/topic8/slides-applications.pdf}
+\includepdf[pages={3-6,10-12}]{../../summer24/lecture_i2dl/slides-pdf/topic8/slides-attention.pdf}
+\section{Practical Considerations for Training Neural Networks}
+\subsection{Hardware and Software}
+\includepdf[pages={3-5,9-10}]{../../summer24/lecture_i2dl/slides-pdf/topic2/slides-opt1-hardware-and-software.pdf}
+\subsection{Regularization}
 \includepdf[pages={6, 11-14, 19-21}]{../../summer24/lecture_i2dl/slides-pdf/topic3/slides-regu-ensemble-dropout-augmentation.pdf}
-\includepdf[pages={3-4,8-9,18-23,25-31,36-41}]{../../summer24/lecture_i2dl/slides-pdf/topic4/slides-4-2-advanced-optim.pdf}
-\includepdf[pages={3-12}]{../../summer24/lecture_i2dl/slides-pdf/topic4/slides-4-3-activations.pdf}
-\includepdf[pages={7-14}]{../../summer24/lecture_i2dl/slides-pdf/topic6/slides-6-5-modern-cnn-2.pdf}
-\includepdf[pages={2,4-13}]{../../summer24/lecture_i2dl/slides-pdf/topic8/slides-adversarials.pdf}
+\subsection{Advanced Training}
+\includepdf[pages={3-4,8-9,18-23,25-31,36-41}]{../../summer24/lecture_i2dl/slides-pdf/topic4/slides-advanced-optim.pdf}
+\subsection{Activation Functions}
+\includepdf[pages={3-10}]{../../summer24/lecture_i2dl/slides-pdf/topic4/slides-activations.pdf}
+\subsection{Residual Connections}
+\includepdf[pages={7-14}]{../../summer24/lecture_i2dl/slides-pdf/topic6/slides-modern-cnn-2.pdf}
+%\includepdf[pages={2,4-13}]{../../summer24/lecture_i2dl/slides-pdf/topic8/slides-adversarials.pdf}
 
 \end{document}
